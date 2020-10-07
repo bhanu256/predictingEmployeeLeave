@@ -1,0 +1,26 @@
+.main-dev {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-card {
+    width: 30%;
+    max-width: 30%;
+    height: 40vh;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.button-container {
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.but {
+    float: right;
+}
