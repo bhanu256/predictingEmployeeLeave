@@ -1,0 +1,25 @@
+.main-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 80%;
+    height: 100vh;
+    margin: auto;
+}
+
+
+.example-container {
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+  }
+  
+.mat-form-field {
+    font-size: 14px;
+    width: 100%;
+}
+  
+.mat-table {
+    overflow: auto;
+    max-height: 500px;
+}
