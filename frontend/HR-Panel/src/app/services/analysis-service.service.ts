@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { HttpHeaders, HttpClient, HttpErrorResponse } from '@angular/common/http'
 
 import { EmployeeResult } from 'src/app/models/employee-result';
 
@@ -6,18 +7,15 @@ import { EmployeeResult } from 'src/app/models/employee-result';
   providedIn: 'root'
 })
 export class AnalysisServiceService {
-  results: EmployeeResult[] = [
-    {id: 1, name: "abc", score: 0.7},
-    {id: 2, name: "dgh", score: 0.3},
-    {id: 1, name: "abc", score: 0.7},
-    {id: 2, name: "dgh", score: 0.3},
-    {id: 1, name: "abc", score: 0.7},
-    {id: 2, name: "dgh", score: 0.3}
-  ];
+  response: any;
 
-  constructor() { }
+  URL = ' http://127.0.0.1:5000/upload';
 
-  getResults(): EmployeeResult[] {
-    return this.results;
+  constructor(
+    private http: HttpClient
+  ) { }
+
+  getResults() {
+    return this.http.get(this.URL);
   }
 }

@@ -14,7 +14,7 @@ import { AnalysisServiceService } from 'src/app/services/analysis-service.servic
 export class ResultComponent implements AfterViewInit {
   result: EmployeeResult[];
   dataSource: MatTableDataSource<EmployeeResult>;
-  displayedColumns: string[] = ['id', 'name', 'score'];
+  displayedColumns: string[] = ['enrollee_id', 'experience', 'training_hours', 'predictions'];
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -22,15 +22,13 @@ export class ResultComponent implements AfterViewInit {
   constructor(
     private _analysisService: AnalysisServiceService
   ) {
-    this.result = this._analysisService.getResults();
-    this.dataSource = new MatTableDataSource(this.result);
+    // this.result = this._analysisService.getResults();
+    this.dataSource = new MatTableDataSource(this._analysisService.response);
    }
 
   ngAfterViewInit(): void {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
-
-    console.log(this.result, this.dataSource)
   }
 
   applyFilter(event: Event): void {
@@ -52,9 +50,10 @@ export class ResultComponent implements AfterViewInit {
     this.result = data.sort((a, b) => {
       const isAsc = sort.direction === 'asc';
       switch (sort.active) {
-        case 'Name': return compare(a.name, b.name, isAsc);
-        case 'Id': return compare(a.id, b.id, isAsc);
-        case 'Score': return compare(a.score, b.score, isAsc);
+        case 'experience': return compare(a.experience, b.experience, isAsc);
+        case 'enrollee_id': return compare(a.enrollee_id, b.enrollee_id, isAsc);
+        case 'training_hours': return compare(a.training_hours, b.training_hours, isAsc);
+        case 'predictions': return compare(a.predictions, b.predictions, isAsc);
         default: return 0;
       }
     });

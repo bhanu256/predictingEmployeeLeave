@@ -6,19 +6,24 @@
 
     <div class="example-container mat-elevation-z8"> 
         <table mat-table [dataSource]="dataSource" matSort class="table-div">
-            <ng-container matColumnDef="id">
+            <ng-container matColumnDef="enrollee_id">
                 <mat-header-cell *matHeaderCellDef mat-sort-header class="item-border"> ID </mat-header-cell>
-                <mat-cell *matCellDef="let row" class="item-border"> {{row.id}} </mat-cell>
+                <mat-cell *matCellDef="let row" class="item-border"> {{row.enrollee_id}} </mat-cell>
             </ng-container>
 
-            <ng-container matColumnDef="name">
-                <mat-header-cell *matHeaderCellDef mat-sort-header class="item-border"> Name </mat-header-cell>
-                <mat-cell *matCellDef="let row" class="item-border"> {{row.name}} </mat-cell>
+            <ng-container matColumnDef="experience">
+                <mat-header-cell *matHeaderCellDef mat-sort-header class="item-border"> Experience </mat-header-cell>
+                <mat-cell *matCellDef="let row" class="item-border"> {{row.experience}} </mat-cell>
             </ng-container>
 
-            <ng-container matColumnDef="score">
-                <mat-header-cell *matHeaderCellDef mat-sort-header class="item-border"> Score </mat-header-cell>
-                <mat-cell *matCellDef="let row" class="item-border"> {{row.score}} </mat-cell>
+            <ng-container matColumnDef="training_hours">
+                <mat-header-cell *matHeaderCellDef mat-sort-header class="item-border"> Training Hours </mat-header-cell>
+                <mat-cell *matCellDef="let row" class="item-border"> {{row.training_hours}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="predictions">
+                <mat-header-cell *matHeaderCellDef mat-sort-header class="item-border"> Predictions </mat-header-cell>
+                <mat-cell *matCellDef="let row" class="item-border"> {{row.predictions}} </mat-cell>
             </ng-container>
 
             <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

@@ -1,0 +1,46 @@
+<div>
+    <div class="main-div">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>
+                    Upload CSV files
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <form [formGroup]="uploadForm">
+                    <br>
+                    <section>
+                        <div ng2FileDrop
+                            [ngClass]="[hasBaseDropZoneOver ? 'nv-file-over' : 'my-drop-zone']"
+                            (fileOver)="fileOverBase($event)"
+                            [uploader]="uploader"
+                            (onFileDrop)="onFileSelected($event)">
+                            Drop Files
+                        </div>
+                    </section>
+            
+                    <br>
+                    <div class="or-div">
+                        <p>-- OR --</p>
+                    </div>
+
+                    <br>
+            
+                    <section class="selection-div">
+                            <input type="file" #fileInput ng2FileSelect [uploader]="uploader" formControlName="file" (onFileSelected)="onFileSelected($event)" />
+                    </section>
+                </form>
+
+                <br>
+        
+                <button mat-raised-button color="primary" [disabled]="!hasBaseDropZoneOver && !uploadForm.valid" (click)="onSubmit()">
+                    {{ buttonText }}
+                    <mat-icon><mat-spinner diameter="20" #spinner *ngIf="spinnerValue" color="accent">
+                    </mat-spinner></mat-icon>
+                </button>
+        
+            </mat-card-content>
+        </mat-card>
+    </div>
+    
+</div>

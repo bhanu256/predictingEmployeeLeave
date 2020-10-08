@@ -1,5 +1,6 @@
 export interface EmployeeResult {
-    id: number;
-    name: string;
-    score: number;
+    enrollee_id: number;
+    experience: number;
+    predictions: number;
+    training_hours: number;
 }

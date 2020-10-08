@@ -1,0 +1,38 @@
+.main-div {
+    width: 60%;
+    margin: auto;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+mat-card {
+    width: 100%;
+}
+
+.or-div {
+    text-align: center;
+}
+
+.nv-file-over { 
+    height: 50px;
+    border: solid 3px red; 
+    border-radius: 5px;
+}
+
+.my-drop-zone { 
+    height: 50px;
+    justify-content: center;
+    border: solid 3px lightgray; 
+    border-radius: 5px;
+}
+
+.selection-div {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    width: 100%;
+}
