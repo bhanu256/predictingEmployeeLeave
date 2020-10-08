@@ -1,0 +1,36 @@
+<div class="main-div">
+    <mat-form-field>
+        <mat-label>Filer</mat-label>
+        <input matInput (keyup)="applyFilter($event)"  #input/>
+    </mat-form-field>
+
+    <div class="example-container mat-elevation-z8"> 
+        <table mat-table [dataSource]="dataSource" matSort class="table-div">
+            <ng-container matColumnDef="id">
+                <mat-header-cell *matHeaderCellDef mat-sort-header class="item-border"> ID </mat-header-cell>
+                <mat-cell *matCellDef="let row" class="item-border"> {{row.id}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="name">
+                <mat-header-cell *matHeaderCellDef mat-sort-header class="item-border"> Name </mat-header-cell>
+                <mat-cell *matCellDef="let row" class="item-border"> {{row.name}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="score">
+                <mat-header-cell *matHeaderCellDef mat-sort-header class="item-border"> Score </mat-header-cell>
+                <mat-cell *matCellDef="let row" class="item-border"> {{row.score}} </mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+            <tr class="mat-row" *matNoDataRow>
+                <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+            </tr>
+
+        </table>
+
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+    </div>
+    
+</div>

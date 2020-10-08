@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
   }
 
   login(username: string, password: string): void {
-    this._router.navigate(['']);
+    this._router.navigate(['results']);
   }
 
 }
